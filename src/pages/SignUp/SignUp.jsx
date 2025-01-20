@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import PasswordInput from "../../components/Input/PasswordInput";
 import { Link, useNavigate } from "react-router-dom";
-import { validateEmail } from "../../utils/helper";
+import { validateEmail, validatePassword } from "../../utils/helper";
 import axiosInstance from "../../utils/axiosInstance";
 
 export default function SignUp() {
@@ -31,13 +31,10 @@ export default function SignUp() {
       return;
     }
 
-    if (!password) {
-      setError("Please enter the password");
-      return;
-    }
-
-    if (password.length < 8) {
-      setError("Password must be at least 8 characters long.");
+    if (!validatePassword(password)) {
+      setError(
+        "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number."
+      );
       return;
     }
 

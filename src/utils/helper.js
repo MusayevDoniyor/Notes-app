@@ -4,6 +4,12 @@ export const validateEmail = (email) => {
   return regex.test(email);
 };
 
+export const validatePassword = (password) => {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$/;
+
+  return regex.test(password);
+};
+
 export const getInitials = (name) => {
   if (!name) return "";
 
