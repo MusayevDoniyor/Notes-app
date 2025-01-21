@@ -12,10 +12,12 @@ const PasswordInput = ({ value, onChange, placeholder }) => {
     <div className="flex items-center bg-transparent border-[1.5px] px-5 rounded mb-3">
       <input
         value={value}
+        name="password"
         type={isShowPassword ? "text" : "password"}
         onChange={onChange}
         placeholder={placeholder || "Password"}
         className="w-full text-sm bg-transparent py-3 mr-3 rounded outline-none"
+        autoComplete="new-password"
       />
 
       {value &&

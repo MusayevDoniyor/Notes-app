@@ -47,15 +47,14 @@ export default function Home() {
   const getUserInfo = async () => {
     try {
       const response = await axiosInstance.get("/get-user");
-
-      if (response.data && response.data.user) {
+      if (response.data?.user) {
         setUserInfo(response.data.user);
-      }
-    } catch (error) {
-      if (error.response.status === 401) {
-        localStorage.clear();
+      } else {
         navigate("/login");
       }
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+      navigate("/login");
     }
   };
 

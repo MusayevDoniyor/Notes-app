@@ -67,7 +67,8 @@ export default function Login() {
             <h4 className="text-2xl mb-7">Login</h4>
 
             <input
-              type="text"
+              type="email"
+              name="email"
               placeholder="Email"
               className="input-box"
               value={email}
